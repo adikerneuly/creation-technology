@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="stylecommande.css">
+    <title>Commande - Rooth'Art</title>
+</head>
+<body>
+         <header>
+        <nav class="navbar">
+           <div class="logo__Name">
+             <div class="logo">
+                 <img src="logo.jpg">
+                </div>
+            <div class="nav-brand">
+                <h1>Rooth'Art</h1>
+                <p>Création Technologie</p>
+            </div>
+           </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Accueil</a></li>
+                <li><a href="catalogue.html">Catalogue</a></li>
+                <li><a href="commande.html">Commande</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="commande">
+            <div class="container">
+                <h2><br>Passer une Commande</h2>
+                
+                <div class="commande-container">
+                    <div class="commande-form-container">
+                        <form action="https://getform.io/f/bmdyogwa" method="POST" class="commande-form" id="commandeForm">
+                            <div class="form-group">
+                                <label for="nom">Nom Complet *</label>
+                                <input type="text" id="nom" name="nom" required placeholder="Votre nom complet">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="telephone">Téléphone *</label>
+                                <input type="tel" id="telephone" name="telephone" required placeholder="Ex: 35361755">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="Votre email (optionnel)">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="service">Type de Service *</label>
+                                <select id="service" name="service" required>
+                                    <option value="">Choisir un service</option>
+                                    <option value="resine">Résine Époxy</option>
+                                    <option value="design">Graphic Design</option>
+                                    <option value="website">Site Web</option>
+                                    <option value="autre">Autre</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="budget">Budget Estimé</label>
+                                <select id="budget" name="budget">
+                                    <option value="">Choisir une fourchette</option>
+                                    <option value="1">Moins de 5,000 HTG</option>
+                                    <option value="2">5,000 - 15,000 HTG</option>
+                                    <option value="3">15,000 - 30,000 HTG</option>
+                                    <option value="4">Plus de 30,000 HTG</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="description">Description du Projet *</label>
+                                <textarea id="description" name="description" required placeholder="Décrivez votre projet en détail..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn">Envoyer la Commande</button>
+                        </form>
+                    </div>
+                    
+                    <div class="commande-info">
+                        <div class="info-card">
+                            <h3>📋 Processus de Commande</h3>
+                            <ul>
+                                <li>Remplissez le formulaire de commande</li>
+                                <li>Nous vous contactons sous 24h</li>
+                                <li>Établissement du devis détaillé</li>
+                                <li>Validation et planification</li>
+                                <li>Réalisation de votre projet</li>
+                                <li>Livraison et suivi</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="info-card">
+                            <h3>⏱️ Délais de Réalisation</h3>
+                            <ul>
+                                <li>Résine Époxy: 7-14 jours</li>
+                                <li>Graphic Design: 3-7 jours</li>
+                                <li>Sites Web: 10-21 jours</li>
+                                <li>Projets complexes: Sur devis</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="contact-urgent">
+                            <h3>📞 Besoin urgent ?</h3>
+                            <p>Contactez-nous directement</p>
+                            <a href="tel:35361755">📞 3536 1755</a>
+                            <a href="tel:40154269">📞 4015 4269</a>
+                            <a href="https://wa.me/50935361755" style="margin-top: 1rem;">💬 WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Rooth'Art</h3>
+                    <p>Création Technologie</p>
+                    <p>📞 Tél: 35361755 / 40154269</p>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link">Facebook</a>
+                    <a href="#" class="social-link">Instagram</a>
+                    <a href="https://wa.me/50935361755" class="social-link">WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
