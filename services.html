@@ -1,0 +1,556 @@
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Rooth'Art Création & Technologie</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: white
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+        
+        /* Header */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .log img{
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+            transition: transform 0.3s;
+               transform-style: preserve-3d;
+            animation: carouselRotate 60s infinite;
+             transition: all 0.5s ease;
+
+        }
+            @keyframes carouselRotate {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 20px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #e74c3c;
+        }
+        
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        #menu-check {
+            display: none;
+        }
+        
+        /* Services Page */
+        .service-page {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            color: #2c3e50;
+        }
+        
+        .service-detail {
+            background-color: rgb(242, 243, 245);
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .service-detail h2 {
+            color: #e74c3c;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+        
+        .service-detail p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-weight: bold;
+            transition: 0s;
+        }
+        .gallery-item img{
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            transition:paused;
+        
+        }
+       .gallery-item img:hover {
+            animation-play-state: paused;
+            background:#792203;
+            transform: scale(1.05);
+            color: white;
+       }
+        
+        
+        /* Premye efè - Zoom ak Fade */
+        .gallery-item img {
+            opacity: 1;
+            transform: scale(1);
+            animation: zoomFade 5s infinite;
+        }
+        
+        @keyframes zoomFade {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+                filter: brightness(1) hue-rotate(0deg);
+            }
+            25% {
+                opacity: 0.8;
+                transform: scale(1.1);
+                filter: brightness(1.2) hue-rotate(90deg);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+                filter: brightness(1.1) hue-rotate(180deg);
+            }
+            75% {
+                opacity: 0.9;
+                transform: scale(1.15);
+                filter: brightness(1.3) hue-rotate(270deg);
+            }
+        }
+        
+        /* Dezyèm efè - Slide ak Glitch */
+        .gallery-item img{
+            opacity: 0;
+            transform: translateX(-100%);
+            animation: slideGlitch 5s infinite 2s;
+        }
+        
+        @keyframes slideGlitch {
+            0%, 100% {
+                opacity: 0;
+                transform: translateX(-100%);
+                filter: brightness(1) blur(0px);
+            }
+            15% {
+                opacity: 1;
+                transform: translateX(0%);
+                filter: brightness(1.1) blur(0px);
+            }
+            20% {
+                transform: translateX(-5px);
+                filter: brightness(1.3) blur(0px);
+            }
+            25% {
+                transform: translateX(5px);
+                filter: brightness(1.1) blur(0px);
+            }
+            30% {
+                transform: translateX(0px);
+                filter: brightness(1.2) blur(0px);
+            }
+            70% {
+                opacity: 1;
+                transform: translateX(0%);
+                filter: brightness(1.1) hue-rotate(45deg);
+            }
+            85% {
+                opacity: 0;
+                transform: translateX(100%);
+                filter: brightness(1) hue-rotate(90deg);
+            }
+        }
+        
+        /* Twazyèm efè - Rotate ak Morph */
+        .gallery-item img{
+            opacity: 0;
+            transform: rotateY(180deg) scale(0.8);
+            animation: rotateMorph 5s infinite 2s;
+        }
+        
+        @keyframes rotateMorph {
+            0%, 100% {
+                opacity: 0;
+                transform: rotateY(180deg) scale(0.8);
+                border-radius: 50%;
+                filter: brightness(1) contrast(1);
+            }
+            20% {
+                opacity: 1;
+                transform: rotateY(0deg) scale(1);
+                border-radius: 20px;
+                filter: brightness(1.2) contrast(1.3);
+            }
+            50% {
+                transform: rotateY(-10deg) scale(1.1);
+                border-radius: 10px;
+                filter: brightness(1.4) contrast(1.5);
+            }
+            80% {
+                opacity: 1;
+                transform: rotateY(10deg) scale(1.05);
+                border-radius: 30px;
+                filter: brightness(1.1) contrast(1.2);
+            }
+        }
+        
+        /* Katriyèm efè - Blur ak Focus */
+        .gallery-item img {
+            opacity: 0;
+            filter: blur(60px) brightness(0.5);
+            animation: blurFocus 15s infinite;
+        }
+        
+        @keyframes blurFocus {
+            0%, 100% {
+                opacity: 0;
+                filter: blur(0px) brightness(0.5);
+                transform: scale(1.2);
+            }
+            25% {
+                opacity: 1;
+                filter: blur(0px) brightness(0.8);
+                transform: scale(1.1);
+            }
+            50% {
+                opacity: 1;
+                filter: blur(0px) brightness(1.3);
+                transform: scale(1);
+            }
+            75% {
+                opacity: 1;
+                filter: blur(0px) brightness(1.1);
+                transform: scale(1.05);
+            }
+        }
+        
+        .transition-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                45deg,
+                rgba(255,0,0,0.1),
+                rgba(0,255,255,0.1),
+                rgba(0,255,0,0.1),
+                rgba(255,255,0,0.1)
+            );
+            mix-blend-mode: overlay;
+            animation: overlayShift 30s infinite;
+        }
+        
+        @keyframes overlayShift {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+        }
+        
+        .transition-info {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            opacity: 0.8;
+            animation: infoPulse 4s infinite;
+        }
+        
+        @keyframes infoPulse {
+            0%, 100% { opacity: 0.6; transform: translateY(0px); }
+            50% { opacity: 1; transform: translateY(-5px); }
+        }
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 15px;
+            color: #e74c3c;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #34495e;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            transition: background-color 0.3s;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            background-color: #e74c3c;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #34495e;
+            font-size: 0.9rem;
+        }
+        
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: #2c3e50;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: left 0.3s;
+            }
+            
+            #menu-check:checked ~ .nav-links {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                 <div class="log">
+                <img src="log.jpg">
+                </div>
+                <a href="index.html" class="logo">Rooth'Art Création & Technologie</a>
+                <input type="checkbox" id="menu-check">
+                <label for="menu-check" class="menu-toggle">☰</label>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="service-page">
+            <div class="container">
+                <h1 class="section-title">Nos Services</h1>
+                
+                <div class="service-detail">
+                    <h2>Résine Époxy</h2>
+                    <p>Nous créons des pièces uniques en résine époxy, alliant esthétique et durabilité. Que ce soit pour des tables, des bijoux ou des objets décoratifs, notre expertise vous garantit des résultats exceptionnels.</p>
+                    <div class="gallery">
+                        <div class="gallery-item"><img src="1.jpg"></div>
+                        <div class="gallery-item"><img src="2.jpg"></div>
+                        <div class="gallery-item"><img src="3.jpg"></div>
+                        <div class="gallery-item"><img src="4.jpg"></div>
+                        <div class="gallery-item"><img src="5.jpg"></div>
+                        <div class="gallery-item"><img src="6.jpg"></div>
+                        <div class="gallery-item"><img src="7.jpg"></div>
+                        <div class="gallery-item"><img src="8.jpg"></div>
+                        <div class="gallery-item"><img src="r.jpg"></div>
+                        <div class="gallery-item"><img src="P.jpg"></div>
+                        <div class="gallery-item"><img src="100.jpg"></div>
+                        <div class="gallery-item"><img src="101.jpg"></div>
+                        <div class="gallery-item"><img src="102.jpg"></div>
+                        <div class="gallery-item"><img src="103 - Copy.jpg"></div>
+                        <div class="gallery-item"><img src="104.jpg"></div>
+                        <div class="gallery-item"><img src="105.jpg"></div>
+                        <div class="gallery-item"><img src="106.jpg"></div>
+                        <div class="gallery-item"><img src="112.jpg"></div>
+                        <div class="gallery-item"><img src="111.jpg"></div>
+                        <div class="gallery-item"><img src="113.jpg"></div>
+                    </div>
+                </div>
+                
+                <div class="service-detail">
+                    <h2>Cuisine Pâtisserie</h2>
+                    <p>Découvrez l'art de la pâtisserie avec nos ateliers et créations culinaires. Nous proposons des formations adaptées à tous les niveaux et créons des pâtisseries sur mesure pour vos événements spéciaux.</p>
+                    <div class="gallery">
+                        <div class="gallery-item"><img src="9.jpg">
+                        </div>
+                        
+                        <div class="gallery-item"><img src="10.jpg"></div>
+                        <div class="gallery-item"><img src="11.jpg"></div>
+                        <div class="gallery-item"><img src="12.jpg"></div>
+                        <div class="gallery-item"><img src="13.jpg"></div>
+                        <div class="gallery-item"><img src="14.jpg"></div>
+                        <div class="gallery-item"><img src="15.jpg"></div>
+                        <div class="gallery-item"><img src="16.jpg"></div>
+                        <div class="gallery-item"><img src="17.jpg"></div>
+                        <div class="gallery-item"><img src="18.jpg"></div>
+                        <div class="gallery-item"><img src="19.jpg"></div>
+                        <div class="gallery-item"><img src="20.jpg"></div>
+                        <div class="gallery-item"><img src="21.jpg"></div>
+                        <div class="gallery-item"><img src="22.jpg"></div>
+                        <div class="gallery-item"><img src="23.jpg"></div>
+                        <div class="gallery-item"><img src="24.jpg"></div>
+                        <div class="gallery-item"><img src="25.jpg"></div>
+                        <div class="gallery-item"><img src="26.jpg"></div>
+                        <div class="gallery-item"><img src="27.jpg"></div>
+                        <div class="gallery-item"><img src="28.jpg"></div>
+                    </div>
+                </div>
+                
+                <div class="service-detail">
+                    <h2>Sites Web</h2>
+                    <p>Nous concevons des sites web modernes, responsives et optimisés pour répondre à vos objectifs commerciaux. De la simple page vitrine aux plateformes e-commerce complexes, nous avons la solution adaptée à vos besoins.</p>
+                    <div class="gallery">
+                    <div class="gallery-item"><img src="70.jpg"></div>
+                        <div class="gallery-item"><img src="71.jpg"></div>
+                        <div class="gallery-item"><img src="72.jpg"></div>
+                        <div class="gallery-item"><img src="73.jpg"></div>
+                        <div class="gallery-item"><img src="74.jpg"></div>
+                    </div>
+                </div>
+                
+                <div class="service-detail">
+                    <h2>Infographie</h2>
+                    <p>Notre équipe de designers talentueux crée des visuels percutants qui renforcent votre identité de marque. Logos, affiches, brochures, supports digitaux - nous donnons vie à vos idées avec créativité et professionnalisme.</p>
+                    <div class="gallery">
+                        <div class="gallery-item"><img src="76.jpg"></div>
+                        <div class="gallery-item"><img src="77.jpg"></div>
+                        <div class="gallery-item"><img src="78.jpg"></div>
+                        <div class="gallery-item"><img src="79.jpg"></div>
+                        <div class="gallery-item"><img src="75.jpg"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Rooth'Art Création & Technologie</h3>
+                    <p>Votre partenaire de confiance pour la création artistique et les solutions technologiques en Haïti.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Suivez-nous</h3>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">FB</a>
+                        <a href="#" aria-label="WhatsApp">WA</a>
+                        <a href="#" aria-label="TikTok">TT</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Rooth'Art Création & Technologie. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
